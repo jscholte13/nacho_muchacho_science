@@ -1,0 +1,15 @@
+{% extends "Testpages/base.html" %}
+{% block content %}
+<h1>Smartclip player - Test Integration </h1>
+	<body>
+		<script type="text/javascript">
+			var t = '//des.smartclip.net/ads?type=dyn&plc=68005&sz=400x320&elementId=outstream_div'
+			t += '&rnd=' + Math.round(Math.random()*1e8)
+			var s = document.createElement('script')
+			s.type = 'text/javascript'
+			s.src = t
+			document.body.appendChild(s)
+		</script>
+		<div id="outstream_div"></div>
+	</body>
+{% endblock content %}

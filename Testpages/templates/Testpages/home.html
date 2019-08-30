@@ -1,0 +1,24 @@
+{% extends "Testpages/base.html" %}
+{% block content %}
+
+<h1>Home - Spotx Test Suite </h1>
+
+{% for post in posts %}
+	<p>By {{ post.author }}</p>
+{% endfor %}
+
+		<div class="content-section-home">
+			<h3> WTF - Spotx Test Suite </h3>
+			<hr></hr>
+			<p>Oh, yeah from here on out no person on techops will have to struggle with setting up their local environments for testing out certain bugs integrations, This page should tage care of all of that.</p>
+
+			<h4> Idea - Indetail </h4>
+			<hr></hr>
+			<p>The original idea is to unload Techops peeps from parts fo their work, I could also see that this could be further developed into an actual Tool for Buseniss to show off different type of integrations or even as an addition down the line to the current techops website/tool. </p>
+
+			<h4> But Mostly</h4>
+			<hr></hr>
+			<p> this is mostly for practice so that i learn how to build and manage a full size website in combination with a sql like DB.</p>
+		</div>
+
+{% endblock content %}
