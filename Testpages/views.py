@@ -31,5 +31,5 @@ def spotx_1x1_GAM (request):
 	return render(request, 'Testpages/spotx_1x1_GAM.html', {'title': 'spotx_1x1_GAM'})
 
 def videoJS (request):
-	return render(request, 'Testpages/Instream_videojs/videoJS.html', {'title': 'videoJS'})
+	return render(request, 'Testpages/videoJS.html', {'title': 'videoJS'})
 	
