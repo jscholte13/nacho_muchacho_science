@@ -1,18 +1,24 @@
 {% extends "Testpages/base.html" %}
-{% block content %}
 {% load static %}
+
+{% block extra_head_content  %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/video-js.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/videojs.ads.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/videojs.ima.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
 <h1> VideoJS player Instream</h1>
 
 <p>Spotx - VideoJS player Instream </p>
 
 <body>
-	<link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/video-js.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/videojs.ads.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/videojs/videojs.ima.css' %}">
-	
 	<video 
 	id='content_video' 
-	class='video-js vjs-default-skin' 
+	class='video-js vjs-default-skin vjs-16-9' 
 	controls preload='auto' 
 	width='600' 
 	height='500'>

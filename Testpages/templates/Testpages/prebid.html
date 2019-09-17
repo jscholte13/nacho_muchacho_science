@@ -1,31 +1,100 @@
 {% extends "Testpages/base.html" %}
+{% load static %}
+
+{% block extra_head_content  %}
+    {{ block.super }}
+<!-- Installed so that google gpt tag alocation works for template spotx_1x1_GAM.html -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script async src="/static/Testpages/prebid/prebid2.32.0.js"></script>
+
+  <script>
+
+    var pbjs = pbjs || {};
+            pbjs.que = pbjs.que || [];
+
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+
+            var PREBID_TIMEOUT = 1000;
+
+            var adUnits = 
+            [{
+                code: 'video1',
+                mediaTypes: 
+                {
+                    video: 
+                    {
+                        context: 'outstream', // 'instream' or 'outstream'
+                        playerSize: [700, 250]
+                    }
+                },
+                bids: 
+                [{
+                    bidder: 'spotx',
+                    params: 
+                    {
+                        channel_id: 85394,
+                        ad_unit: 'outstream',
+                        outstream_options: 
+                        { // Needed for the default outstream renderer -    fields video_slot/content_width/content_height are mandatory
+                            slot: 'video1',
+                            content_width: 300,
+                            content_height: 250
+                        }
+                    }
+                }]
+            }];
+
+            pbjs.que.push(function() {
+                pbjs.addAdUnits(adUnits);
+                pbjs.requestBids({
+                    bidsBackHandler: initAdserver
+                });
+            });
+
+            function initAdserver() {
+                if (pbjs.initAdserverSet) return;
+                pbjs.initAdserverSet = true;
+                googletag.cmd.push(function() {
+                    pbjs.que.push(function() {
+                        pbjs.setTargetingForGPTAsync();
+                        googletag.pubads().refresh();
+                    });
+                });
+            }
+
+            setTimeout(function() {
+                initAdserver();
+            }, PREBID_TIMEOUT);
+
+
+            googletag.cmd.push(function() {
+                var slot1 = googletag.defineSlot('/137679306/Johnno_Test_easi_1x1', [1, 1], 'video1').addService(googletag.pubads());
+                googletag.pubads().disableInitialLoad();
+                googletag.pubads().enableSingleRequest();
+                googletag.enableServices();
+            });
+
+
+  </script>
+{% endblock %}
+
+
+
 {% block content %}
 <h1> Prebid Instream</h1>
 
 <p>Spotx - Prebid player Integration </p>
-
-<body>
-	<link rel="stylesheet" href="//googleads.github.io/videojs-ima/node_modules/video.js/dist/video-js.min.css"/>
-    <link rel="stylesheet" href="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.css"/>
-    <link rel="stylesheet" href="//googleads.github.io/videojs-ima/dist/videojs.ima.css"/>
-
-    <link rel="stylesheet" type="text/css" href="{% static 'Testpages/main.css' %}">
-
     
-	<video 
-	id='content_video' 
-	class='video-js vjs-default-skin' 
-	controls preload='auto' 
-	width='600' 
-	height='500'>
-	<source src="/static/Testvideos/bun33s.mp4" type="video/mp4" />
-	</video>
+	<div id='video1'>
+    <p>Prebid Outstream Video Ad</p>
+    <script type='text/javascript'>
+        googletag.cmd.push(function() {
+            googletag.display('video1');
+        });
 
-	<script src="//googleads.github.io/videojs-ima/node_modules/video.js/dist/video.min.js"></script>
- 	<script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
- 	<script src="//googleads.github.io/videojs-ima/node_modules/videojs-contrib-ads/dist/videojs.ads.min.js"></script>
- 	<script src="//googleads.github.io/videojs-ima/dist/videojs.ima.js"></script>
- 	<script src="/Instream_videojs/player.js"></script>
-</body>
+    </script>
+</div>
+
 
 {% endblock content %}

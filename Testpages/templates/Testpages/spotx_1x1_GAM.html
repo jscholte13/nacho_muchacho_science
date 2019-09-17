@@ -1,4 +1,20 @@
 {% extends "Testpages/base.html" %}
+
+{% block extra_head_content  %}
+    {{ block.super }}
+    <!-- Installed so that google gpt tag alocation works for template spotx_1x1_GAM.html -->
+  <script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"></script>
+  <script>
+  window.googletag = window.googletag || {cmd: []};
+  googletag.cmd.push(function() {
+    googletag.defineSlot('/137679306/Johnno_Test_easi_1x1', [1, 1], 'div-gpt-ad-1566834833014-0').addService(googletag.pubads());
+    googletag.pubads().enableSingleRequest();
+    googletag.enableServices();
+  });
+  </script>
+{% endblock %}
+
+
 {% block content %}
 <h1> 3rd Party Tag integration</h1>
 

@@ -7,5 +7,5 @@ urlpatterns = [
     path('smartclip/', views.smartclip, name='Testpages-smartclip'),
     path('spotx_1x1_GAM/', views.spotx_1x1_GAM, name='Testpages-spotx_1x1_GAM'),
     path('videoJS/', views.videoJS, name='Testpages-videoJS'),
-    path('prebid/', views.videoJS, name='Testpages-prebid'),
+    path('prebid/', views.prebid, name='Testpages-prebid'),
 ]

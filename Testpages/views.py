@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
-# Pages still to create for integrations: 
-# 2. Instream VPAID tag 
  
 
 posts = [
@@ -30,14 +28,14 @@ def smartclip (request):
 def spotx_1x1_GAM (request):
 	return render(request, 'Testpages/spotx_1x1_GAM.html', {'title': 'spotx_1x1_GAM'})
 
-# 3. Instream VAST tag
+# 3. Instream VAST tag and # 4. Instream VPAID tag 
 def videoJS (request):
 	return render(request, 'Testpages/videoJS.html', {'title': 'videoJS'})
 
-# 4. Prebid outstream 
+# 5. Prebid outstream 
 def prebid (request):
 	return render(request, 'Testpages/prebid.html', {'title': 'prebid'})
 
-# 5. OpenRTB integration
+# 6. OpenRTB integration
 
 	
