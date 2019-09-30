@@ -26,7 +26,7 @@ var player = videojs('content_video');
 
 var options = {
   id: 'content_video',
-  adTagUrl: 'https://search.spotxchange.com/vast/2.0/266074?VPAID=JS&custom_skin=1'
+  adTagUrl: 'https://search.spotxchange.com/vast/2.0/266074?VPI=MP4&custom_skin=1&pixel_sync=0&dmp_sync=0&dsp_sync=0&user_sync=0'
 };
 
 
