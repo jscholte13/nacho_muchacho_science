@@ -1,15 +1,27 @@
 {% extends "Testpages/base.html" %}
+{% load static %}
+
+{% block extra_head_content  %}
+    {{ block.super }}
+{% endblock %}
+
 {% block content %}
 <h1>Smartclip player - Test Integration </h1>
+
 	<body>
 		<script type="text/javascript">
-			var t = '//des.smartclip.net/ads?type=dyn&plc=68005&sz=400x320&elementId=outstream_div'
+			var t = '//des.smartclip.net/ads?type=dyn&plc=68005&sz=400x320&elementId=col-md-8'
 			t += '&rnd=' + Math.round(Math.random()*1e8)
 			var s = document.createElement('script')
 			s.type = 'text/javascript'
 			s.src = t
 			document.body.appendChild(s)
+
+			function sc_smartIntxtStart (){console.log ('smartIntxt player has started.');}
+			function sc_smartIntxtEnd (){console.log ('smartIntxt player has finished.');}
 		</script>
-		<div id="outstream_div"></div>
 	</body>
+
+	<script src="/static/Eventlisners/script.js"></script>
 {% endblock content %}
+

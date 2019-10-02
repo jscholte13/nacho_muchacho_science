@@ -12,6 +12,7 @@
     <!-- loading Main CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'Testpages/main.css' %}">
 
+
 	{% if title %}
 		<title> Testpages - {{ title }}</title>
 	{% else %}
@@ -25,7 +26,7 @@
 	<header class="site-header">
   		<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
     		<div class="container">
-      			<a class="navbar-brand mr-4" href="{% url 'Testpages-home' %}"><img src="https://www.spotx.tv/wp-content/uploads/spotx-logo-color-300x64.png" width="110" height="24" /></a>
+      			<a class="navbar-brand mr-4" href="{% url 'Testpages-home' %}"><font color="#d3d3d3"size="5">ᕙ(⇀‸↼‶)ᕗ</font></a>
      	 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle	" aria-expanded="false" aria-label="Toggle navigation">
       			<span class="navbar-toggler-icon"></span>
       			</button>
@@ -33,13 +34,15 @@
       			<div class="collapse navbar-collapse" id="navbarToggle">
         			<div class="navbar-nav mr-auto">
          	 			<a class="nav-item nav-link" href="{% url 'Testpages-home' %}">Home</a>
+                <!-- only viewable for users who have been authenticated -->
                 {% if user.is_authenticated %}
-         	 			<a class="nav-item nav-link" href="{% url 'Testpages-about' %}"> EASI Player</a>
-                <a class="nav-item nav-link" href="{% url 'Testpages-smartclip' %}"> Smartclip Player</a>
+         	 			<a class="nav-item nav-link" href="{% url 'Testpages-smartclip' %}"> Smartclip Player</a>
+                <a class="nav-item nav-link" href="{% url 'Testpages-about' %}"> EASI Player</a>
                 <a class="nav-item nav-link" href="{% url 'Testpages-spotx_1x1_GAM' %}"> Spotx 1x1 GAM</a>
                 <a class="nav-item nav-link" href="{% url 'Testpages-videoJS' %}"> VideoJS Instream </a>
                 <a class="nav-item nav-link" href="{% url 'Testpages-prebid' %}"> Prebid Integration </a>
                 {% endif %}
+                <a class="nav-item nav-link" href="{% url 'Testpages-passwordgenerator' %}"> Password Generator </a>
         			</div>
         	<!-- Navbar Right Side -->
         			<div class="navbar-nav">
@@ -48,7 +51,7 @@
                   <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                 {% else %}  
           			 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-          			 <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+          			<!-- <a class="nav-item nav-link" href="{% url 'register' %}">Register</a> -->
                 {% endif %}
         			</div>
       			</div>
@@ -69,22 +72,17 @@
         {% endif %}
       	{% block content %}{% endblock %}
     	</div>
-  
-    <!-- Content Right Sidebar -->
-    	<!-- <div class="col-md-4"> -->
-      	<!-- <div class="content-section"> -->
-        	<!-- <h3>Our Sidebar</h3> -->
-        	<!-- <p class='text-muted'>You can put any information here you'd like. -->
-          	<!-- <ul class="list-group"> -->
-            	<!-- <li class="list-group-item list-group-item-light">Latest Posts</li> -->
-            	<!-- <li class="list-group-item list-group-item-light">Announcements</li> -->
-            	<!-- <li class="list-group-item list-group-item-light">Calendars</li> -->
-            	<!-- <li class="list-group-item list-group-item-light">etc</li> -->
-          	<!-- </ul> -->
-        	<!-- </p> -->
-      	<!-- </div> -->
-    	<!-- </div> -->
-  	</div>
+
+      <!-- Content Right Sidebar -->
+      <div class="col-md-4">
+        <div class="content-section">
+          <h3>Events log</h3>
+          <p class='text-muted'>Would like to use this as a event log.</p>      
+          <div id ="report-events"> logging events </div>
+        </div>
+      </div>
+
+    </div>
 	</main>
 
 	 <!-- Optional JavaScript -->

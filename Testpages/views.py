@@ -36,6 +36,8 @@ def videoJS (request):
 def prebid (request):
 	return render(request, 'Testpages/prebid.html', {'title': 'prebid'})
 
-# 6. OpenRTB integration
+# 6. Passwordgenerator
 
+def passwordgenerator (request):
+	return render(request, 'Testpages/passwordgenerator.html', {'title': 'passwordgenerator'})
 	
